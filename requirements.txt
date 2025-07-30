@@ -10,7 +10,6 @@ cffi==1.15.0
 charset-normalizer==3.4.0
 click==8.1.8
 colorama==0.4.6
-Eel==0.14.0
 Flask==2.2.5
 flatbuffers==24.3.25
 future==0.18.2
