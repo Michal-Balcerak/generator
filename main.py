@@ -10,7 +10,6 @@ def index():
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    print("== generate() został wywołany ==")
     option = request.form['option']
     script_path = f'scripts/{option}.py'
 
@@ -28,4 +27,4 @@ def generate():
         return "PDF nie został wygenerowany", 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000)
