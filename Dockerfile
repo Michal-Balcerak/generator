@@ -1,4 +1,4 @@
-FROM python:3.7.4 AS builder
+FROM python:3.9-slim AS builder
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
@@ -21,7 +21,7 @@ RUN .venv/bin/pip install -r requirements.txt
 
 COPY . .
 
-FROM python:3.7.4-slim
+FROM python:3.9-slim
 
 WORKDIR /app
 
