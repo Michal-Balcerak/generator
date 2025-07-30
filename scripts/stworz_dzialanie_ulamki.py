@@ -53,3 +53,4 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
 
 if __name__ == "__main__":
     generuj_pdf()
+
