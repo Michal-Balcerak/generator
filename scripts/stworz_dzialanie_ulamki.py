@@ -52,5 +52,4 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
 
 if __name__ == "__main__":
-    print("@@")
     generuj_pdf()
