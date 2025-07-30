@@ -18,7 +18,11 @@ def generate():
 
     # Wykonaj skrypt (który generuje PDF)
 
-    result = subprocess.run(['python', script_path])
+    python_executable = os.path.join(".venv", "Scripts", "python.exe" if os.name == "nt" else "bin/python")
+    result = subprocess.run([python_executable, script_path], capture_output=True, text=True)
+
+    print("STDOUT:", result.stdout)
+    print("STDERR:", result.stderr)
 
     pdf_path = f'output/{option}.pdf'
     if os.path.exists(pdf_path):
