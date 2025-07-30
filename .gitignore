@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# LaTeX build artifacts
+output/
+temp_build/
+scripts/temp_build/
+
+# created PDFs (optional) 
+*.pdf
