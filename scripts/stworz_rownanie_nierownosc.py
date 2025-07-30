@@ -1,8 +1,8 @@
-from .r_kwadratowe1 import tworz_rownanie_1
-from .r_kwadratowe2 import tworz_rownanie_2
-from .r_stopnia_3 import tworz_rownanie_3
-from .nierownosc_kwadratowa1 import tworz_nierownosc_1
-from .generate_pdf import pdf
+from r_kwadratowe1 import tworz_rownanie_1
+from r_kwadratowe2 import tworz_rownanie_2
+from r_stopnia_3 import tworz_rownanie_3
+from nierownosc_kwadratowa1 import tworz_nierownosc_1
+from generate_pdf import pdf
 
 def generuj_pdf(tryb=1,ile_przykladow=26):
 

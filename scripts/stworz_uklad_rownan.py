@@ -1,6 +1,6 @@
-from .uklady import stworz_uklad
-from .uklady2 import stworz_uklad2
-from .generate_pdf import pdf
+from uklady import stworz_uklad
+from uklady2 import stworz_uklad2
+from generate_pdf import pdf
 
 
 def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):

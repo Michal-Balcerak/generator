@@ -1,6 +1,6 @@
 import random
 import sys
-from .funkcje import NWD
+from funkcje import NWD
 
 
 

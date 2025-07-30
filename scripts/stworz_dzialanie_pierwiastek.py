@@ -1,5 +1,5 @@
-from .generate_pdf import pdf
-from .dzialania_pierwiastki import *
+from generate_pdf import pdf
+from dzialania_pierwiastki import *
 
 # 1 - mnożenie
 # 2 - dodawanie i odejmowanie
