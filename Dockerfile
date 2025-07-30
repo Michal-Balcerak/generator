@@ -38,5 +38,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=builder /app/.venv .venv/
 COPY . .
 
+ENV FLASK_APP=main.py
+
 CMD ["/app/.venv/bin/flask", "run", "--host=0.0.0.0", "--port=8080"]
 
