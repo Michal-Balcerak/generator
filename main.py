@@ -18,13 +18,8 @@ def generate():
         return "Niepoprawna opcja", 400
 
     # Wykonaj skrypt (który generuje PDF)
-    print(f"URUCHAMIAM: {script_path}")
-    result = subprocess.run(['python', script_path], capture_output=True, text=True)
-
-    print("==== stdout ====")
-    print(result.stdout)
-    print("==== stderr ====")
-    print(result.stderr)
+    
+    result = subprocess.run(['python', script_path])
 
     pdf_path = f'output/{option}.pdf'
     if os.path.exists(pdf_path):
