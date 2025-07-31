@@ -14,7 +14,7 @@ def generuj_pdf(tryb=1,ile_przykladow=26):
     elif tryb ==3:
         funkcja = tworz_rownanie_3
     else:
-        funkcja = tworz_nierownosc_1()
+        funkcja = tworz_nierownosc_1
 
     output+='\\begin{enumerate}\n'
     output+='\\renewcommand{\labelenumi}{\\alph{enumi})}\n'

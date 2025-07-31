@@ -60,4 +60,4 @@ if __name__ == "__main__":
     except ValueError:
         stopien, ile, tryb = 2, 26, 1
 
-    generuj_pdf(stopien=stopien, tryb=tryb, ile_przykladow=ile)
+    generuj_pdf(tryb=tryb, ile_przykladow=ile, stopien=stopien)
