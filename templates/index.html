@@ -7,14 +7,41 @@
 <body>
     <h1>Wybierz opcję </h1>
     <form action="/generate" method="post">
-        <select name="option">
+        <label for="option">Typ zadania:</label>
+        <select name="option" id="option" onchange="toggleExtraOptions()">
             <option value="stworz_dzialanie_ulamki">Działania ułamki</option>
             <option value="stworz_przyklad_pierwiastki">Przykłady pierwiastki</option>
             <option value="stworz_dzialanie_pierwiastek">Działania pierwiastki</option>
             <option value="stworz_rownanie_nierownosc">Równanie kwadratowe</option>
             <option value="stworz_uklad_rownan">Układ równań</option>
         </select>
+        <div id="ulamki-options" style="display:none; margin-top: 10px;">
+            <label for="tryb">Tryb:</label>
+            <select name="tryb" id="tryb">
+                <option value="1">Dodawanie/Odejmowanie (ten sam mianownik)</option>
+                <option value="2">Dodawanie/Odejmowanie (różne mianowniki)</option>
+                <option value="3">Mnożenie/Dzielenie</option>
+            </select>
+
+            <br><br>
+
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value">13</span></label>
+            <input type="range" name="ile_przykladow" id="ile_przykladow" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+        </div>
+
+        <br>
         <button type="submit">Generuj PDF</button>
     </form>
+
+    <script>
+        function toggleExtraOptions() {
+            const option = document.getElementById("option").value;
+            const ulamkiOptions = document.getElementById("ulamki-options");
+            ulamkiOptions.style.display = (option === "stworz_dzialanie_ulamki") ? "block" : "none";
+        }
+
+        // uruchom przy załadowaniu
+        toggleExtraOptions();
+    </script>
 </body>
 </html>

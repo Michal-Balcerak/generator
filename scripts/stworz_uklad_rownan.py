@@ -3,6 +3,9 @@ from uklady2 import stworz_uklad2
 from generate_pdf import pdf
 
 
+# Tryb
+# 1 - latwe
+# 2 - trudne (tylko 2 lub 3 zmienne)
 def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
     output=''
 

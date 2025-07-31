@@ -15,8 +15,6 @@ def stworz_uklad2(n):
         oznaczenia = ['x', 'y', 'z']
     else:
         sys.exit()
-        # for i in range(n):
-        #     oznaczenia.append(f'x_{i+1}')
 
     for i in range(n):
         x = random.randint(-9, 9)
