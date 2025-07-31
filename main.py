@@ -16,7 +16,6 @@ def generate():
     if not os.path.exists(script_path):
         return "Niepoprawna opcja", 400
 
-    # Wykonaj skrypt (który generuje PDF)
 
     if os.name == "nt":
         python_executable = os.path.join(".venv", "Scripts", "python.exe")
@@ -24,10 +23,10 @@ def generate():
         python_executable = os.path.join(".venv", "bin", "python")
     result = subprocess.run([python_executable, script_path], capture_output=True, text=True)
 
-    print("STDOUT:", result.stdout)
-    print("STDERR:", result.stderr)
+    # print("STDOUT:", result.stdout)
+    # print("STDERR:", result.stderr)
 
-    pdf_path = f'output/{option}.pdf'
+    pdf_path = f'output/zadania.pdf'
     if os.path.exists(pdf_path):
         return send_file(pdf_path, as_attachment=True)
     else:

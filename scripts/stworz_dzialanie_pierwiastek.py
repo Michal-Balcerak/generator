@@ -43,11 +43,13 @@ def generuj_pdf(tryb=1, ile_przykladow=26, stopien=2):
             # output += '$\\newline'
         output += '\\end{enumerate}\n'
 
-    output_dir = "zadania"
+    output_dir = "output"
     temp_dir = "temp_build"
-    file_name = f"pierwiastki_dzialania{tryb}"
+    file_name = f"zadania"
 
 
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
 
-generuj_pdf(tryb=2, stopien=2)
+
+if __name__ == "__main__":
+    generuj_pdf()

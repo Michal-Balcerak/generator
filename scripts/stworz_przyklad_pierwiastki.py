@@ -44,7 +44,7 @@ def generuj_pdf(stopien=2, trudnosc=1, ile_przykladow=26):
 
     output_dir = "output"
     temp_dir = "temp_build"
-    file_name = f"stworz_przyklad_pierwiastki"
+    file_name = f"zadania"
 
 
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
