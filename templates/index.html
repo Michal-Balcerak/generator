@@ -8,7 +8,7 @@
     <h1>Wybierz opcję </h1>
     <form action="/generate" method="post">
         <label for="option">Typ zadania:</label>
-        <select name="option" id="option" onchange="toggleExtraOptions()">
+        <select name="option" id="option" onchange="toggleFields()">
             <option value="stworz_dzialanie_ulamki">Działania ułamki</option>
             <option value="stworz_przyklad_pierwiastki">Przykłady pierwiastki</option>
             <option value="stworz_dzialanie_pierwiastek">Działania pierwiastki</option>
@@ -25,10 +25,10 @@
 
             <br><br>
 
-            <label for="ile_przykladow">Ile przykładów: <span id="ile_value">13</span></label>
-            <input type="range" name="ile_przykladow_ulamki" id="ile_przykladow" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value">26</span></label>
+            <input type="range" name="ile_przykladow_ulamki" id="ile_przykladow" min="1" max="26" value="26" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
-
+        <br>
         <div id="pierwiastki-options" style="display:none; margin-top: 10px;">
             <label for="stopien">Stopień pierwiastka:</label>
             <select name="stopien" id="stopien">
@@ -46,8 +46,8 @@
             </select>
             <br>
 
-            <label for="ile_przykladow">Ile przykładów: <span id="ile_value2">13</span></label>
-            <input type="range" name="ile_przykladow_pierwiastki" id="ile_przykladow2" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value2">26</span></label>
+            <input type="range" name="ile_przykladow_pierwiastki" id="ile_przykladow2" min="1" max="26" value="26" oninput="document.getElementById('ile_value2').innerText = this.value">
         </div>
 
         <br>
