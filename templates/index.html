@@ -26,7 +26,7 @@
             <br><br>
 
             <label for="ile_przykladow">Ile przykładów: <span id="ile_value">13</span></label>
-            <input type="range" name="ile_przykladow" id="ile_przykladow" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+            <input type="range" name="ile_przykladow_ulamki" id="ile_przykladow" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
 
         <div id="pierwiastki-options" style="display:none; margin-top: 10px;">
@@ -47,7 +47,7 @@
             <br>
 
             <label for="ile_przykladow">Ile przykładów: <span id="ile_value2">13</span></label>
-            <input type="range" name="ile_przykladow" id="ile_przykladow2" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+            <input type="range" name="ile_przykladow_pierwiastki" id="ile_przykladow2" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
 
         <br>
@@ -60,9 +60,9 @@
         document.querySelectorAll('.option-fields').forEach(div => div.style.display = 'none');
 
         if (option === "stworz_dzialanie_ulamki") {
-            document.getElementById("ulamki-fields").style.display = "block";
+            document.getElementById("ulamki-options").style.display = "block";
         } else if (option === "stworz_przyklad_pierwiastki") {
-            document.getElementById("pierwiastki-fields").style.display = "block";
+            document.getElementById("pierwiastki-options").style.display = "block";
         }
         // Dodaj inne przypadki
     }

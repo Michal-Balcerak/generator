@@ -20,12 +20,12 @@ def generate():
 
     if option == "stworz_dzialanie_ulamki":
         tryb = request.form.get('tryb', '1')
-        ile = request.form.get('ile_przykladow', '26')
+        ile = request.form.get('ile_przykladow_ulamki', '26')
         args = [tryb, ile]
 
     elif option == "stworz_przyklad_pierwiastki":
-        stopien = request.form.get('tryb', '2')
-        ile = request.form.get('ile_przykladow', '26')
+        stopien = request.form.get('stopien', '2')
+        ile = request.form.get('ile_przykladow_pierwiastki', '26')
         trudnosc = request.form.get('trudnosc', '1')
         args = [stopien, ile, trudnosc]
 
