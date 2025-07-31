@@ -15,7 +15,7 @@
             <option value="stworz_rownanie_nierownosc">Równanie kwadratowe</option>
             <option value="stworz_uklad_rownan">Układ równań</option>
         </select>
-        <div id="ulamki-options" style="display:none; margin-top: 10px;">
+        <div id="ulamki-options" class="option-fields" style="display:none; margin-top: 10px;">
             <label for="tryb">Tryb:</label>
             <select name="tryb" id="tryb">
                 <option value="1">Dodawanie/Odejmowanie (ten sam mianownik)</option>
@@ -29,7 +29,7 @@
             <input type="range" name="ile_przykladow_ulamki" id="ile_przykladow" min="1" max="26" value="26" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
         <br>
-        <div id="pierwiastki-options" style="display:none; margin-top: 10px;">
+        <div id="pierwiastki-options" class="option-fields" style="display:none; margin-top: 10px;">
             <label for="stopien">Stopień pierwiastka:</label>
             <select name="stopien" id="stopien">
                 <option value="2">2</option>
@@ -68,7 +68,7 @@
     }
 
     // uruchom przy załadowaniu
-    toggleFields();
+    window.addEventListener('DOMContentLoaded', toggleFields);;
 </script>
 </body>
 </html>
