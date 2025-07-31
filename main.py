@@ -29,6 +29,22 @@ def generate():
         trudnosc = request.form.get('trudnosc', '1')
         args = [stopien, ile, trudnosc]
 
+    elif option == "stworz_dzialanie_pierwiastek":
+        tryb = request.form.get('pierwiastki_tryb', '1')
+        ile = request.form.get('ile_przykladow_dz_pierwiastki', '26')
+        stopien = request.form.get('dzialania_stopien', '2')
+        args = [stopien, ile, tryb]
+
+    elif option == "stworz_rownanie_nierownosc":
+        tryb = request.form.get('rownania_tryb', '1')
+        ile = request.form.get('ile_przykladow_rownania', '26')
+        args = [ile, tryb]
+
+    elif option == "stworz_uklad_rownan":
+        tryb = request.form.get('uklad_tryb', '1')
+        ile = request.form.get('ile_przykladow_uklad', '26')
+        zmienne = request.form.get('zmienne', '2')
+        args = [ile, tryb, zmienne]
 
     if os.name == "nt":
         python_executable = os.path.join(".venv", "Scripts", "python.exe")

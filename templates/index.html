@@ -7,14 +7,16 @@
 <body>
     <h1>Wybierz opcję </h1>
     <form action="/generate" method="post">
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <label for="option">Typ zadania:</label>
         <select name="option" id="option" onchange="toggleFields()">
             <option value="stworz_dzialanie_ulamki">Działania ułamki</option>
             <option value="stworz_przyklad_pierwiastki">Przykłady pierwiastki</option>
             <option value="stworz_dzialanie_pierwiastek">Działania pierwiastki</option>
-            <option value="stworz_rownanie_nierownosc">Równanie kwadratowe</option>
+            <option value="stworz_rownanie_nierownosc">Równanie / Nierówność</option>
             <option value="stworz_uklad_rownan">Układ równań</option>
         </select>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <div id="ulamki-options" class="option-fields" style="display:none; margin-top: 10px;">
             <label for="tryb">Tryb:</label>
             <select name="tryb" id="tryb">
@@ -29,6 +31,7 @@
             <input type="range" name="ile_przykladow_ulamki" id="ile_przykladow" min="1" max="26" value="26" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
         <br>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <div id="pierwiastki-options" class="option-fields" style="display:none; margin-top: 10px;">
             <label for="stopien">Stopień pierwiastka:</label>
             <select name="stopien" id="stopien">
@@ -51,6 +54,62 @@
         </div>
 
         <br>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div id="pierwiastki-dzialania-options" class="option-fields" style="display:none; margin-top: 10px;">
+            <label for="stopien">Stopień pierwiastka:</label>
+            <select name="dzialania-stopien" id="dzialania-stopien">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <br>
+            <label for="pierwiastki-tryb">Tryb:</label>
+            <select name="pierwiastki-tryb" id="pierwiastki-tryb">
+                <option value="1">Mnożenie</option>
+                <option value="2">Dodawanie i odejmowanie</option>
+            </select>
+            <br>
+
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value3">26</span></label>
+            <input type="range" name="ile_przykladow_dz_pierwiastki" id="ile_przykladow3" min="1" max="26" value="26" oninput="document.getElementById('ile_value3').innerText = this.value">
+        </div>
+
+        <br>
+<<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div id="rownania-options" class="option-fields" style="display:none; margin-top: 10px;">
+            <label for="rownania-tryb">Tryb:</label>
+            <select name="rownania-tryb" id="rownania-tryb">
+                <option value="1">Równanie kwadratowe (łatwe)</option>
+                <option value="2">Równanie kwadratowe (średnie)</option>
+                <option value="3">Równanie stopnia 3 </option>
+                <option value="4">Nierówność kwadratowa</option>
+            </select>
+            <br>
+
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value4">26</span></label>
+            <input type="range" name="ile_przykladow_rownania" id="ile_przykladow4" min="1" max="26" value="26" oninput="document.getElementById('ile_value4').innerText = this.value">
+        </div>
+
+        <br>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div id="uklad-options" class="option-fields" style="display:none; margin-top: 10px;">
+            <label for="uklad-tryb">Tryb:</label>
+            <select name="uklad-tryb" id="uklad-tryb">
+                <option value="1">łatwe</option>
+                <option value="2">trudne (tylko 2 lub 3 zmienne)</option>
+            </select>
+            <br>
+            <label for="ile_zmiennych">Ile zmiennych <span id="zmienne_value">2</span></label>
+            <input type="range" name="zmienne" id="ile_zmiennych" min="2" max="8" value="2" oninput="document.getElementById('zmienne_value').innerText = this.value">
+
+            <br>
+
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value5">26</span></label>
+            <input type="range" name="ile_przykladow_uklad" id="ile_przykladow5" min="1" max="26" value="26" oninput="document.getElementById('ile_value5').innerText = this.value">
+        </div>
+
+        <br>
         <button type="submit">Generuj PDF</button>
     </form>
 
@@ -63,6 +122,15 @@
             document.getElementById("ulamki-options").style.display = "block";
         } else if (option === "stworz_przyklad_pierwiastki") {
             document.getElementById("pierwiastki-options").style.display = "block";
+        }
+        else if (option === "stworz_dzialanie_pierwiastek") {
+            document.getElementById("pierwiastki-dzialania-options").style.display = "block";
+        }
+        else if (option === "stworz_rownanie_nierownosc") {
+            document.getElementById("rownania-options").style.display = "block";
+        }
+        else if (option === "stworz_uklad_rownan") {
+            document.getElementById("uklad-options").style.display = "block";
         }
         // Dodaj inne przypadki
     }

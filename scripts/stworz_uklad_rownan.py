@@ -40,4 +40,12 @@ def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
 
 if __name__ == "__main__":
-    generuj_pdf()
+    import sys
+    try:
+        ile = int(sys.argv[1]) if len(sys.argv) > 1 else 26
+        tryb = int(sys.argv[2]) if len(sys.argv) > 2 else 26
+        zmienne = int(sys.argv[3]) if len(sys.argv) > 3 else 1
+    except ValueError:
+        ile, tryb, zmienne = 26, 1, 2
+
+    generuj_pdf(tryb=tryb, liczba_zmiennych=zmienne, ile_przykladow=ile)

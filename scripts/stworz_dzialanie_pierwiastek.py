@@ -52,4 +52,12 @@ def generuj_pdf(tryb=1, ile_przykladow=26, stopien=2):
 
 
 if __name__ == "__main__":
-    generuj_pdf()
+    import sys
+    try:
+        stopien = int(sys.argv[1]) if len(sys.argv) > 1 else 2
+        ile = int(sys.argv[2]) if len(sys.argv) > 2 else 26
+        tryb = int(sys.argv[3]) if len(sys.argv) > 3 else 1
+    except ValueError:
+        stopien, ile, tryb = 2, 26, 1
+
+    generuj_pdf(stopien=stopien, tryb=tryb, ile_przykladow=ile)
