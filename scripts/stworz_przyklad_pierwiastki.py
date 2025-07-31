@@ -1,10 +1,7 @@
 from generate_pdf import pdf
 from przyklad_pierwiastek import *
 
-# Tryb
-# 1 - stopien 2
-# x - stopien x (3,4,5 - zalezy od trudnosci)
-def generuj_pdf(tryb=1, trudnosc=1, ile_przykladow=26):
+def generuj_pdf(stopien=1, trudnosc=1, ile_przykladow=26):
 
 
     output = ''
@@ -12,10 +9,10 @@ def generuj_pdf(tryb=1, trudnosc=1, ile_przykladow=26):
     output += '\\renewcommand{\labelenumi}{\\alph{enumi})}\n'
     rozwiazania = []
     while True:
-        if tryb == 1:
+        if stopien == 2:
             dzialanie, r = tworz_dzialanie_0(trudnosc)
         else:
-            dzialanie, r = tworz_dzialanie_1(difficulty=trudnosc, degree=tryb)
+            dzialanie, r = tworz_dzialanie_1(difficulty=trudnosc, degree=stopien)
 
         # jeśli unikalny przykład
         if r not in rozwiazania:
@@ -54,4 +51,8 @@ def generuj_pdf(tryb=1, trudnosc=1, ile_przykladow=26):
 
 
 if __name__ == "__main__":
-    generuj_pdf()
+    import sys
+    stopien = int(sys.argv[1]) if len(sys.argv) > 2 else 2
+    ile = int(sys.argv[2]) if len(sys.argv) > 2 else 26
+    trudnosc = int(sys.argv[3]) if len(sys.argv) > 1 else 1
+    generuj_pdf(stopien=stopien, trudnosc=trudnosc, ile_przykladow=ile)

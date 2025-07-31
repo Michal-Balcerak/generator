@@ -29,19 +29,46 @@
             <input type="range" name="ile_przykladow" id="ile_przykladow" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
         </div>
 
+        <div id="pierwiastki-options" style="display:none; margin-top: 10px;">
+            <label for="stopien">Stopień pierwiastka:</label>
+            <select name="stopien" id="stopien">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <br>
+            <label for="trudnosc">Poziom trudności:</label>
+            <select name="trudnosc" id="trudnosc">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <br>
+
+            <label for="ile_przykladow">Ile przykładów: <span id="ile_value2">13</span></label>
+            <input type="range" name="ile_przykladow" id="ile_przykladow2" min="1" max="26" value="13" oninput="document.getElementById('ile_value').innerText = this.value">
+        </div>
+
         <br>
         <button type="submit">Generuj PDF</button>
     </form>
 
     <script>
-        function toggleExtraOptions() {
-            const option = document.getElementById("option").value;
-            const ulamkiOptions = document.getElementById("ulamki-options");
-            ulamkiOptions.style.display = (option === "stworz_dzialanie_ulamki") ? "block" : "none";
-        }
+    function toggleFields() {
+        const option = document.getElementById("option").value;
+        document.querySelectorAll('.option-fields').forEach(div => div.style.display = 'none');
 
-        // uruchom przy załadowaniu
-        toggleExtraOptions();
-    </script>
+        if (option === "stworz_dzialanie_ulamki") {
+            document.getElementById("ulamki-fields").style.display = "block";
+        } else if (option === "stworz_przyklad_pierwiastki") {
+            document.getElementById("pierwiastki-fields").style.display = "block";
+        }
+        // Dodaj inne przypadki
+    }
+
+    // uruchom przy załadowaniu
+    toggleFields();
+</script>
 </body>
 </html>

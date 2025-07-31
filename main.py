@@ -16,16 +16,25 @@ def generate():
     if not os.path.exists(script_path):
         return "Niepoprawna opcja", 400
 
-    # domyślne
-    tryb = request.form.get('tryb', '1')
-    ile = request.form.get('ile_przykladow', '26')
+    args = []
+
+    if option == "stworz_dzialanie_ulamki":
+        tryb = request.form.get('tryb', '1')
+        ile = request.form.get('ile_przykladow', '26')
+        args = [tryb, ile]
+
+    elif option == "stworz_przyklad_pierwiastki":
+        stopien = request.form.get('tryb', '2')
+        ile = request.form.get('ile_przykladow', '26')
+        trudnosc = request.form.get('trudnosc', '1')
+        args = [stopien, ile, trudnosc]
 
 
     if os.name == "nt":
         python_executable = os.path.join(".venv", "Scripts", "python.exe")
     else:
         python_executable = os.path.join(".venv", "bin", "python")
-    result = subprocess.run([python_executable, script_path, tryb, ile], capture_output=True, text=True)
+    result = subprocess.run([python_executable, script_path, *args], capture_output=True, text=True)
 
     # print("STDOUT:", result.stdout)
     # print("STDERR:", result.stderr)
