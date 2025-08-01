@@ -39,10 +39,11 @@ def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
         output += '\\item\n'
         output += '$'
         for z in rozwiazania:
-            output += str(z[0])
-            output += "="
-            output += str(z[1])
-            output += ", "
+            for y in z:
+                output += y[0]
+                output += "="
+                output += str(y[1])
+                output += ", "
         output += '$'
         # output += '$\\newline'
     output += '\\end{enumerate}\n'
