@@ -26,6 +26,7 @@ def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
         output += x[0]
         output += '\\end{cases}\n'
         output += '\\end{equation*}\n'
+        rozwiazania.append(x[1])
         # for j in x[1]:
         #     output += f'${j[0]}={j[1]}$, '
 
