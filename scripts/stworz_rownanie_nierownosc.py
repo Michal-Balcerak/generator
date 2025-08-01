@@ -1,6 +1,6 @@
 from r_kwadratowe1 import tworz_rownanie_1
 from r_kwadratowe2 import tworz_rownanie_2
-from r_stopnia_3 import tworz_rownanie_3
+from r_stopnia_3 import tworz_rownanie_3, tworz_rownanie_3b
 from nierownosc_kwadratowa1 import tworz_nierownosc_1
 from generate_pdf import pdf
 
@@ -9,12 +9,14 @@ def generuj_pdf(tryb=1,ile_przykladow=26):
     output=''
     if tryb == 1:
         funkcja = tworz_rownanie_1
-    elif tryb ==2:
+    elif tryb == 2:
         funkcja = tworz_rownanie_2
-    elif tryb ==3:
+    elif tryb == 3:
+        funkcja = tworz_nierownosc_1
+    elif tryb == 4:
         funkcja = tworz_rownanie_3
     else:
-        funkcja = tworz_nierownosc_1
+        funkcja = tworz_rownanie_3b
 
     output+='\\begin{enumerate}\n'
     output+='\\renewcommand{\labelenumi}{\\alph{enumi})}\n'
