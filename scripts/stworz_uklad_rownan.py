@@ -12,7 +12,7 @@ def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
     output+='\\begin{enumerate}\n'
     output+='\\renewcommand{\labelenumi}{\\alph{enumi})}\n'
 
-
+    rozwiazania = []
     for i in range(ile_przykladow):
 
         output+= '\\item\n'
@@ -30,6 +30,17 @@ def generuj_pdf(tryb=1, liczba_zmiennych=2, ile_przykladow=26):
         #     output += f'${j[0]}={j[1]}$, '
 
     output+='\\end{enumerate}\n'
+
+    output += 'Rozwiązania:'
+    output += '\\begin{enumerate}\n'
+    output += '\\renewcommand{\labelenumi}{\\alph{enumi})}\n'
+    for i in range(ile_przykladow):
+        output += '\\item\n'
+        output += '$'
+        output += rozwiazania[i]
+        output += '$'
+        # output += '$\\newline'
+    output += '\\end{enumerate}\n'
 
 
     output_dir = "output"
