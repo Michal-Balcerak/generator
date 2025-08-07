@@ -4,6 +4,7 @@ from dzialania_ulamki import *
 # 1 - dodawanie i odejmowanie, ten sam mianownik
 # 2 - dodawanie i odejmowanie, dowolny mianownik
 # 3 - mnożenie i dzielenie
+# 4 - dziesietne - dodawanie i odejmowanie
 
 
 

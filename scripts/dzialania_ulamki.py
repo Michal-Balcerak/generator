@@ -8,29 +8,21 @@ from funkcje import *
 def tworz_dzialanie_1():
 
     out = ''
-    rozwiazanie = ''
-
-    y_1 = random.randint(0, 1) #znak pierwszej liczby
-    y_2 = random.randint(0, 1) #znak drugiej liczby
 
     N = 26 #największa liczba całkowita jaka może się wylosować
     M = 15 #największy mianownik jaki może się wylosować
-    LICZBY = []
-    for i in range(N):
-        LICZBY.append(i+1)
-
 
     m = random.randint(2, M) #mianownik
 
-    l_1 = 0
+    l_1 = 0 #licznik pierwszej liczby
     while l_1 == 0 or l_1 % m == 0:
-        l_1 = random.randint(-(m * M), m*N)
+        l_1 = random.randint(-(m * N), m*N)
     ulamek_1 = sympy.sympify(f'{l_1}/{m}')
     tex1 = konwersja_ulamek_liczba_mieszana(ulamek_1)
 
-    l_2 = 0
+    l_2 = 0 #licznik drugiej liczby
     while l_2 == 0 or l_2 % m == 0:
-        l_2 = random.randint(-(m * M), m * N)
+        l_2 = random.randint(-(m * N), m * N)
     ulamek_2 = sympy.sympify(f'{l_2}/{m}')
     tex2 = konwersja_ulamek_liczba_mieszana(ulamek_2)
 
@@ -52,28 +44,22 @@ def tworz_dzialanie_1():
 def tworz_dzialanie_2():
 
     out = ''
-    rozwiazanie = ''
-    y_1 = random.randint(0, 1) #znak pierwszej liczby
-    y_2 = random.randint(0, 1) #znak drugiej liczby
 
     N = 26 #największa liczba całkowita jaka może się wylosować
     M = 15 #największy mianownik jaki może się wylosować
-    LICZBY = []
-    for i in range(N):
-        LICZBY.append(i+1)
 
     m1 = random.randint(2, M) #mianownik
     m2 = random.randint(2, M) #mianownik
 
-    l_1 = 0
+    l_1 = 0 #licznik pierwszej liczby
     while l_1 == 0 or l_1 % m1 == 0:
-        l_1 = random.randint(-(m1 * M), m1*N)
+        l_1 = random.randint(-(m1 * N), m1*N)
     ulamek_1 = sympy.sympify(f'{l_1}/{m1}')
     tex1 = konwersja_ulamek_liczba_mieszana(ulamek_1)
 
-    l_2 = 0
+    l_2 = 0 #licznik drugiej liczby
     while l_2 == 0 or l_2 % m2 == 0:
-        l_2 = random.randint(-(m2 * M), m2 * N)
+        l_2 = random.randint(-(m2 * N), m2 * N)
     ulamek_2 = sympy.sympify(f'{l_2}/{m2}')
     tex2 = konwersja_ulamek_liczba_mieszana(ulamek_2)
 
@@ -89,37 +75,29 @@ def tworz_dzialanie_2():
     wynik_tex = konwersja_ulamek_liczba_mieszana(wynik)
     rozwiazanie = wynik_tex
 
-
-
     return (out, rozwiazanie)
 
 # mnożenie i dzielenie
 def tworz_dzialanie_3():
     out = ''
-    rozwiazanie = ''
 
     x = random.randint(0, 1) # 0 - mnożenie, 1 - dzielenie
-    y_1 = random.randint(0, 1)  # znak pierwszej liczby
-    y_2 = random.randint(0, 1)  # znak drugiej liczby
 
     N = 7  # największa liczba całkowita jaka może się wylosować
     M = 5  # największy mianownik jaki może się wylosować
-    LICZBY = []
-    for i in range(N):
-        LICZBY.append(i + 1)
 
     m1 = random.randint(2, M)  # mianownik1
 
-    l_1 = 0
+    l_1 = 0 #licznik pierwszej liczby
     while l_1 == 0 or l_1 % m1 == 0:
-        l_1 = random.randint(-(m1 * M), m1 * N)
+        l_1 = random.randint(-(m1 * N), m1 * N)
     ulamek_1 = sympy.sympify(f'{l_1}/{m1}')
     tex1 = konwersja_ulamek_liczba_mieszana(ulamek_1)
 
     m2 = random.randint(2, M)  # mianownik2
-    l_2 = 0
+    l_2 = 0 #licznik drugiej liczby
     while l_2 == 0 or l_2 % m2 == 0:
-        l_2 = random.randint(-(m2 * M), m2 * N)
+        l_2 = random.randint(-(m2 * N), m2 * N)
     ulamek_2 = sympy.sympify(f'{l_2}/{m2}')
     tex2 = konwersja_ulamek_liczba_mieszana(ulamek_2)
 
@@ -148,6 +126,31 @@ def tworz_dzialanie_3():
     rozwiazanie = wynik_tex
 
     return (out, rozwiazanie)
+
+# dodawanie i odejmowanie - ułamki dziesiętne
+def tworz_dzialanie_4():
+    out = ""
+    a = -20 #dolny zakres
+    b = 20 #górny zakres
+    d = 2 #ile miejsc po przecinku
+
+    x1 = random.uniform(a, b)
+    x1 = round(x1,d)
+
+    x2 = random.uniform(a, b)
+    x2 = round(x2, d)
+
+
+    expr = sympy.Rational(str(x1)) + sympy.Rational(str(x2))
+
+    rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
+    w = ''
+    if x2>=0:
+        w = '+'
+    out = out + float_to_polish_string(x1) + w + float_to_polish_string(x2)
+
+    return (out, rozwiazanie)
+
 
 
 

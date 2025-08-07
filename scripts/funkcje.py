@@ -30,3 +30,6 @@ def konwersja_ulamek_liczba_mieszana(ulamek):
         out = out + '\\frac{' + str(r) + '}{' + str(d) + '}'
 
     return out
+
+def float_to_polish_string(f):
+    return str(f).replace('.', ',')
