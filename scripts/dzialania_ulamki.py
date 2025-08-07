@@ -135,11 +135,14 @@ def tworz_dzialanie_4():
     d = 2 #ile miejsc po przecinku
 
     x1 = random.uniform(a, b)
-    x1 = round(x1,d)
+    x1 = round(x1, d)
+    if x1.is_integer():
+        x1 = int(x1)
 
     x2 = random.uniform(a, b)
     x2 = round(x2, d)
-
+    if x2.is_integer():
+        x2 = int(x2)
 
     expr = sympy.Rational(str(x1)) + sympy.Rational(str(x2))
 
@@ -150,6 +153,37 @@ def tworz_dzialanie_4():
     out = out + float_to_polish_string(x1) + w + float_to_polish_string(x2)
 
     return (out, rozwiazanie)
+
+# ułamki dziesiętne - mnożenie
+def tworz_dzialanie_5():
+    out = ""
+    a = -20 #dolny zakres
+    b = 20 #górny zakres
+    d = 1 #ile miejsc po przecinku
+
+    x1 = random.uniform(a, b)
+    x1 = round(x1,d)
+    if x1.is_integer():
+        x1 = int(x1)
+
+    x2 = random.uniform(a, b)
+    x2 = round(x2, d)
+    if x2.is_integer():
+        x2 = int(x2)
+
+    expr = sympy.Rational(str(x1)) * sympy.Rational(str(x2))
+
+    rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
+
+    out = out + float_to_polish_string(x1) + "\\cdot"
+    if x2 < 0:
+        out += "("
+    out += float_to_polish_string(x2)
+    if x2 < 0:
+        out += ")"
+
+    return (out, rozwiazanie)
+
 
 
 

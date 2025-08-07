@@ -5,6 +5,7 @@ from dzialania_ulamki import *
 # 2 - dodawanie i odejmowanie, dowolny mianownik
 # 3 - mnożenie i dzielenie
 # 4 - dziesietne - dodawanie i odejmowanie
+# 5 - dziesietne - mnożenie
 
 
 
@@ -30,6 +31,10 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
             dzialanie, r = tworz_dzialanie_3()
         elif tryb == 4:
             dzialanie, r = tworz_dzialanie_4()
+        elif tryb == 5:
+            dzialanie, r = tworz_dzialanie_5()
+        # elif tryb == 6:
+        #     dzialanie, r = tworz_dzialanie_6()
         output += dzialanie
         output += '$\\\\'
         rozwiazania.append(r)
