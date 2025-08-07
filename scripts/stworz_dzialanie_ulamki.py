@@ -28,6 +28,8 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
             dzialanie, r = tworz_dzialanie_2()
         elif tryb == 3:
             dzialanie, r = tworz_dzialanie_3()
+        elif tryb == 4:
+            dzialanie, r = tworz_dzialanie_4()
         output += dzialanie
         output += '$\\\\'
         rozwiazania.append(r)
