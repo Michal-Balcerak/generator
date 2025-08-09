@@ -238,13 +238,24 @@ def tworz_dzialanie_6():
     else:
         rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
 
-    out = out + float_to_polish_string(x1) + ops[q]
+    out += float_to_polish_string(x1)
+    if ops[q]=="*":
+        out+="\\cdot"
+    elif ops[q]=="/":
+        out+=":"
+    else:
+        out+= ops[q]
     if x2 < 0:
         out += "("
     out += float_to_polish_string(x2)
     if x2 < 0:
         out += ")"
-    out += ops[w]
+    if ops[w] == "*":
+        out += "\\cdot"
+    elif ops[w] == "/":
+        out += ":"
+    else:
+        out += ops[w]
     if x3 < 0:
         out += "("
     out += float_to_polish_string(x3)
@@ -291,7 +302,14 @@ def tworz_dzialanie_7():
     else:
         rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
 
-    out = out + float_to_polish_string(x1) + ops[q] + "(" + float_to_polish_string(x2) + ops[w]
+    out += float_to_polish_string(x1)
+    if ops[q]=="*":
+        out += "\\cdot"
+    elif ops[q]=="/":
+        out += ":"
+    out += "("
+    out += float_to_polish_string(x2)
+    out += ops[w]
     if x3 < 0:
         out += "("
     out += float_to_polish_string(x3)
