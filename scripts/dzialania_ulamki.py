@@ -173,7 +173,11 @@ def tworz_dzialanie_5():
 
     expr = sympy.Rational(str(x1)) * sympy.Rational(str(x2))
 
-    rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
+    obliczone = float(expr.simplify())
+    if obliczone.is_integer():
+        rozwiazanie = str(int(obliczone))
+    else:
+        rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
 
     out = out + float_to_polish_string(x1) + "\\cdot"
     if x2 < 0:
