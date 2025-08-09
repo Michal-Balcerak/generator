@@ -1,7 +1,6 @@
 import random
 import sympy
 from funkcje import *
-import operator
 
 # słownik z działaniami - do losowania działań
 ops = {
@@ -239,12 +238,19 @@ def tworz_dzialanie_6():
     else:
         rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
 
-    out = out + float_to_polish_string(x1) + "\\cdot"
+    out = out + float_to_polish_string(x1) + ops[q]
     if x2 < 0:
         out += "("
     out += float_to_polish_string(x2)
     if x2 < 0:
         out += ")"
+    out += ops[w]
+    if x3 < 0:
+        out += "("
+    out += float_to_polish_string(x3)
+    if x3 < 0:
+        out += ")"
+
 
     return (out, rozwiazanie)
 
@@ -253,7 +259,47 @@ def tworz_dzialanie_6():
 # @ - mnozenie lub dzielenie
 # & - dodawanie lub odejmowanie
 def tworz_dzialanie_7():
-    pass
+    out = ""
+    a = -20  # dolny zakres
+    b = 20  # górny zakres
+    d = 1  # ile miejsc po przecinku
+
+    x1 = random.uniform(a, b)
+    x1 = round(x1, d)
+    if x1.is_integer():
+        x1 = int(x1)
+
+    x2 = random.uniform(a, b)
+    x2 = round(x2, d)
+    if x2.is_integer():
+        x2 = int(x2)
+
+    x3 = random.uniform(a, b)
+    x3 = round(x3, d)
+    if x3.is_integer():
+        x3 = int(x3)
+
+    q = random.randint(2, 3)  # pierwsze dzialanie (mnozenie/dzielenie)
+    w = random.randint(0, 1)  # drugie dzialanie (dodawanie/odejmowanie)
+
+    s = f"{x1} {ops[q]} ({x2} {ops[w]} {x3})"
+    expr = sympy.parsing.sympy_parser.parse_expr(s)
+
+    obliczone = float(expr.simplify())
+    if obliczone.is_integer():
+        rozwiazanie = str(int(obliczone))
+    else:
+        rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
+
+    out = out + float_to_polish_string(x1) + ops[q] + "(" + float_to_polish_string(x2) + ops[w]
+    if x3 < 0:
+        out += "("
+    out += float_to_polish_string(x3)
+    if x3 < 0:
+        out += ")"
+    out += ")"
+
+    return (out, rozwiazanie)
 
 
 
