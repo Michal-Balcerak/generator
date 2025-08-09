@@ -224,8 +224,9 @@ def tworz_dzialanie_6():
     if x3.is_integer():
         x3 = int(x3)
 
-    q = random.randint(0,3) #pierwsze dzialanie (dodawanie/odejmowanie/mnozenie/dzielenie)
-    w = random.randint(0,3) #drugie dzialanie (dodawanie/odejmowanie/mnozenie/dzielenie)
+    # na razie bez dzielenia
+    q = random.randint(0,2) #pierwsze dzialanie (dodawanie/odejmowanie/mnozenie/dzielenie)
+    w = random.randint(0,2) #drugie dzialanie (dodawanie/odejmowanie/mnozenie/dzielenie)
 
 
     s = f"{x1} {ops[q]} {x2} {ops[w]} {x3}"
@@ -290,7 +291,8 @@ def tworz_dzialanie_7():
     if x3.is_integer():
         x3 = int(x3)
 
-    q = random.randint(2, 3)  # pierwsze dzialanie (mnozenie/dzielenie)
+    #q = random.randint(2, 3)  # pierwsze dzialanie (mnozenie/dzielenie)
+    q =2 #na razie bez dzielenia
     w = random.randint(0, 1)  # drugie dzialanie (dodawanie/odejmowanie)
 
     s = f"{x1} {ops[q]} ({x2} {ops[w]} {x3})"
