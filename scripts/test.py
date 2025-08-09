@@ -11,14 +11,16 @@ from sympy import symbols, Rational
 
 import random
 
-x = random.uniform(0, 1)
-print(x)
-x = round(x,4)
-print(x)
-
-y = random.uniform(0, 1)
-print(y)
-y = round(y,4)
-print(y)
-
-print(Rational(str(x)))
+# x = random.uniform(0, 1)
+# print(x)
+# x = round(x,4)
+# print(x)
+#
+# y = random.uniform(0, 1)
+# print(y)
+# y = round(y,4)
+# print(y)
+#
+# print(Rational(str(x)))
+for i in range(10):
+    print(random.randint(0,3))
