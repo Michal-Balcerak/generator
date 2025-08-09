@@ -6,7 +6,8 @@ from dzialania_ulamki import *
 # 3 - mnożenie i dzielenie
 # 4 - dziesietne - dodawanie i odejmowanie
 # 5 - dziesietne - mnożenie
-
+# 6 - # a@b@c, a,b,c - ulamki dziesietne, @ - działanie
+# 7 - a @ (b & c), a,b,c - ulamki dziesietne, @ - mnozenie lub dzielenie, & - dodawanie lub odejmowanie
 
 
 def generuj_pdf(tryb=1, ile_przykladow=26):
@@ -33,8 +34,10 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
             dzialanie, r = tworz_dzialanie_4()
         elif tryb == 5:
             dzialanie, r = tworz_dzialanie_5()
-        # elif tryb == 6:
-        #     dzialanie, r = tworz_dzialanie_6()
+        elif tryb == 6:
+            dzialanie, r = tworz_dzialanie_6()
+        elif tryb == 7:
+            dzialanie, r = tworz_dzialanie_7()
         output += dzialanie
         output += '$\\\\'
         rozwiazania.append(r)
