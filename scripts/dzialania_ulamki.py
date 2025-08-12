@@ -182,7 +182,7 @@ def tworz_dzialanie_4():
     out += ops[w]
     if l_3 < 0:
         out += "("
-    out += l_3
+    out += tex3
     if l_3 < 0:
         out += ")"
     out += ")"
