@@ -31,6 +31,9 @@ def generuj_pdf(tryb=1, ile_przykladow=26, stopien=2):
 
     output += '\\end{enumerate}\n'
 
+    output += '\\newpage'
+    output += '\n'
+
     if rozwiazania:
         output += 'Rozwiązania:'
         output+='\\begin{enumerate}\n'

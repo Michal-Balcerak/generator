@@ -31,6 +31,9 @@ def generuj_pdf(stopien=1, trudnosc=1, ile_przykladow=26):
 
     output += '\\end{enumerate}\n'
 
+    output += '\\newpage'
+    output += '\n'
+
     output += 'Rozwiązania:'
     output+='\\begin{enumerate}\n'
     output+='\\renewcommand{\labelenumi}{\\alph{enumi})}\n'
