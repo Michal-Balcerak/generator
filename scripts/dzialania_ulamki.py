@@ -141,8 +141,8 @@ def tworz_dzialanie_4():
     q = random.randint(2, 3)  # pierwsze dzialanie (mnozenie/dzielenie)
     w = random.randint(0, 1)  # drugie dzialanie (dodawanie/odejmowanie)
 
-    N = 26  # największa liczba całkowita jaka może się wylosować
-    M = 15  # największy mianownik jaki może się wylosować
+    N = 3  # największa liczba całkowita jaka może się wylosować
+    M = 5  # największy mianownik jaki może się wylosować
 
     m1 = random.randint(2, M)  # mianownik
     m2 = random.randint(2, M)  # mianownik
