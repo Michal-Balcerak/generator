@@ -135,8 +135,58 @@ def tworz_dzialanie_3():
 
     return (out, rozwiazanie)
 
-# dodawanie i odejmowanie - ułamki dziesiętne
 def tworz_dzialanie_4():
+    out = ''
+
+    q = random.randint(2, 3)  # pierwsze dzialanie (mnozenie/dzielenie)
+    w = random.randint(0, 1)  # drugie dzialanie (dodawanie/odejmowanie)
+
+    N = 26  # największa liczba całkowita jaka może się wylosować
+    M = 15  # największy mianownik jaki może się wylosować
+
+    m1 = random.randint(2, M)  # mianownik
+    m2 = random.randint(2, M)  # mianownik
+    m3 = random.randint(2, M)  # mianownik
+
+    l_1 = 0  # licznik pierwszej liczby
+    while l_1 == 0 or l_1 % m1 == 0:
+        l_1 = random.randint(-(m1 * N), m1 * N)
+    ulamek_1 = sympy.sympify(f'{l_1}/{m1}')
+    tex1 = konwersja_ulamek_liczba_mieszana(ulamek_1)
+
+    l_2 = 0  # licznik drugiej liczby
+    while l_2 == 0 or l_2 % m2 == 0:
+        l_2 = random.randint(-(m2 * N), m2 * N)
+    ulamek_2 = sympy.sympify(f'{l_2}/{m2}')
+    tex2 = konwersja_ulamek_liczba_mieszana(ulamek_2)
+
+    l_3 = 0  # licznik trzeciej liczby
+    while l_3 == 0 or l_3 % m3 == 0:
+        l_3 = random.randint(-(m3 * N), m3 * N)
+    ulamek_3 = sympy.sympify(f'{l_3}/{m3}')
+    tex3 = konwersja_ulamek_liczba_mieszana(ulamek_3)
+
+
+    out = out + tex1 + ops[q] + "(" + tex2 + ops[w]
+    if l_3<0:
+        out += "("
+    out += tex3
+    if l_3<0:
+        out += ")"
+
+    out += ")"
+
+    # obliczanie wyniku:
+    dzialanie = str(l_1) + '/' + str(m1) + ops[q] + "(" + str(l_2) + '/' + str(m2) + ops[w] + str(l_3) + '/' + str(m3) + ")"
+    wynik = sympy.sympify(dzialanie)
+    wynik_tex = konwersja_ulamek_liczba_mieszana(wynik)
+    rozwiazanie = wynik_tex
+
+    return (out, rozwiazanie)
+
+
+# dodawanie i odejmowanie - ułamki dziesiętne
+def tworz_dzialanie_5():
     out = ""
     a = -20 #dolny zakres
     b = 20 #górny zakres
@@ -153,12 +203,9 @@ def tworz_dzialanie_4():
         x2 = int(x2)
 
     expr = sympy.Rational(str(x1)) + sympy.Rational(str(x2))
-
     obliczone = f"{float(expr.simplify()):g}"
-
     rozwiazanie = float_to_polish_string(obliczone)
 
-    #rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
     w = ''
     if x2>=0:
         w = '+'
@@ -167,7 +214,7 @@ def tworz_dzialanie_4():
     return (out, rozwiazanie)
 
 # ułamki dziesiętne - mnożenie
-def tworz_dzialanie_5():
+def tworz_dzialanie_6():
     out = ""
     a = -20 #dolny zakres
     b = 20 #górny zakres
@@ -184,16 +231,7 @@ def tworz_dzialanie_5():
         x2 = int(x2)
 
     expr = sympy.Rational(str(x1)) * sympy.Rational(str(x2))
-
-    # #rozwiazanie = float_to_polish_string(expr)
-    # obliczone = float(expr.simplify())
-    # if obliczone.is_integer():
-    #     rozwiazanie = str(int(obliczone))
-    # else:
-    #     rozwiazanie = str(float_to_polish_string(obliczone)) #zmiana na float z przecinkiem
-
     obliczone = f"{float(expr.simplify()):g}"
-
     rozwiazanie = float_to_polish_string(obliczone)
 
     out = out + float_to_polish_string(x1) + "\\cdot"
@@ -208,7 +246,7 @@ def tworz_dzialanie_5():
 # a@b@c
 # a,b,c - ulamki dziesietne
 # @ - działanie
-def tworz_dzialanie_6():
+def tworz_dzialanie_7():
     out = ""
     a = -20  # dolny zakres
     b = 20  # górny zakres
@@ -236,13 +274,7 @@ def tworz_dzialanie_6():
 
     s = f"{x1} {ops[q]} {x2} {ops[w]} {x3}"
     expr = sympy.parsing.sympy_parser.parse_expr(s)
-
-    #rozwiazanie = float_to_polish_string(expr)
     obliczone = f"{float(expr.simplify()):g}"
-    # if float(obliczone).is_integer():
-    #     rozwiazanie = str(int(obliczone))
-    # else:
-    #     rozwiazanie = float_to_polish_string(obliczone)  # zmiana na float z przecinkiem
     rozwiazanie = float_to_polish_string(obliczone)
 
     out += float_to_polish_string(x1)
@@ -276,7 +308,7 @@ def tworz_dzialanie_6():
 # a,b,c - ulamki dziesietne
 # @ - mnozenie lub dzielenie
 # & - dodawanie lub odejmowanie
-def tworz_dzialanie_7():
+def tworz_dzialanie_8():
     out = ""
     a = -20  # dolny zakres
     b = 20  # górny zakres
@@ -303,16 +335,7 @@ def tworz_dzialanie_7():
 
     s = f"{x1} {ops[q]} ({x2} {ops[w]} {x3})"
     expr = sympy.parsing.sympy_parser.parse_expr(s)
-
-    #rozwiazanie = float_to_polish_string(expr)
-
-    # obliczone = float(expr.simplify())
-    # if obliczone.is_integer():
-    #     rozwiazanie = str(int(obliczone))
-    # else:
-    #     rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
     obliczone = f"{float(expr.simplify()):g}"
-
     rozwiazanie = float_to_polish_string(obliczone)
 
     out += float_to_polish_string(x1)

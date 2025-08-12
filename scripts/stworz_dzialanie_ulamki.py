@@ -1,13 +1,14 @@
 from generate_pdf import pdf
 from dzialania_ulamki import *
 
-# 1 - dodawanie i odejmowanie, ten sam mianownik
-# 2 - dodawanie i odejmowanie, dowolny mianownik
-# 3 - mnożenie i dzielenie
-# 4 - dziesietne - dodawanie i odejmowanie
-# 5 - dziesietne - mnożenie
-# 6 - # a@b@c, a,b,c - ulamki dziesietne, @ - działanie
-# 7 - a @ (b & c), a,b,c - ulamki dziesietne, @ - mnozenie lub dzielenie, & - dodawanie lub odejmowanie
+# 1 - zwykle - dodawanie i odejmowanie, ten sam mianownik
+# 2 - zwykle - dodawanie i odejmowanie, dowolny mianownik
+# 3 - zwykle - mnożenie i dzielenie
+# 4 - zwykle - a @ (b & c), @ - mnozenie lub dzielenie, & - dodawanie lub odejmowanie
+# 5 - dziesietne - dodawanie i odejmowanie
+# 6 - dziesietne - mnożenie
+# 7 - dziesietne - a@b@c, @ - działanie
+# 8 - dziesietne - a @ (b & c), @ - mnozenie lub dzielenie, & - dodawanie lub odejmowanie
 
 
 def generuj_pdf(tryb=1, ile_przykladow=26):
@@ -38,6 +39,8 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
             dzialanie, r = tworz_dzialanie_6()
         elif tryb == 7:
             dzialanie, r = tworz_dzialanie_7()
+        elif tryb == 8:
+            dzialanie, r = tworz_dzialanie_8()
         output += dzialanie
         output += '$\\\\'
         rozwiazania.append(r)
