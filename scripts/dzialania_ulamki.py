@@ -153,13 +153,12 @@ def tworz_dzialanie_4():
         x2 = int(x2)
 
     expr = sympy.Rational(str(x1)) + sympy.Rational(str(x2))
-    #rozwiazanie = float_to_polish_string(expr)
 
-    obliczone = float(expr.simplify())
-    if obliczone.is_integer():
-        rozwiazanie = str(int(obliczone))
-    else:
-        rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
+    obliczone = f"{float(expr.simplify()):g}"
+
+    rozwiazanie = float_to_polish_string(obliczone)
+
+    #rozwiazanie = str(float_to_polish_string(float(expr.simplify()))) #zmiana na float z przecinkiem
     w = ''
     if x2>=0:
         w = '+'
@@ -186,12 +185,16 @@ def tworz_dzialanie_5():
 
     expr = sympy.Rational(str(x1)) * sympy.Rational(str(x2))
 
-    #rozwiazanie = float_to_polish_string(expr)
-    obliczone = float(expr.simplify())
-    if obliczone.is_integer():
-        rozwiazanie = str(int(obliczone))
-    else:
-        rozwiazanie = str(float_to_polish_string(obliczone)) #zmiana na float z przecinkiem
+    # #rozwiazanie = float_to_polish_string(expr)
+    # obliczone = float(expr.simplify())
+    # if obliczone.is_integer():
+    #     rozwiazanie = str(int(obliczone))
+    # else:
+    #     rozwiazanie = str(float_to_polish_string(obliczone)) #zmiana na float z przecinkiem
+
+    obliczone = f"{float(expr.simplify()):g}"
+
+    rozwiazanie = float_to_polish_string(obliczone)
 
     out = out + float_to_polish_string(x1) + "\\cdot"
     if x2 < 0:
@@ -235,11 +238,12 @@ def tworz_dzialanie_6():
     expr = sympy.parsing.sympy_parser.parse_expr(s)
 
     #rozwiazanie = float_to_polish_string(expr)
-    obliczone = float(expr.simplify())
-    if obliczone.is_integer():
-        rozwiazanie = str(int(obliczone))
-    else:
-        rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
+    obliczone = f"{float(expr.simplify()):g}"
+    # if float(obliczone).is_integer():
+    #     rozwiazanie = str(int(obliczone))
+    # else:
+    #     rozwiazanie = float_to_polish_string(obliczone)  # zmiana na float z przecinkiem
+    rozwiazanie = float_to_polish_string(obliczone)
 
     out += float_to_polish_string(x1)
     if ops[q]=="*":
@@ -302,11 +306,14 @@ def tworz_dzialanie_7():
 
     #rozwiazanie = float_to_polish_string(expr)
 
-    obliczone = float(expr.simplify())
-    if obliczone.is_integer():
-        rozwiazanie = str(int(obliczone))
-    else:
-        rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
+    # obliczone = float(expr.simplify())
+    # if obliczone.is_integer():
+    #     rozwiazanie = str(int(obliczone))
+    # else:
+    #     rozwiazanie = str(float_to_polish_string(obliczone))  # zmiana na float z przecinkiem
+    obliczone = f"{float(expr.simplify()):g}"
+
+    rozwiazanie = float_to_polish_string(obliczone)
 
     out += float_to_polish_string(x1)
     if ops[q]=="*":
