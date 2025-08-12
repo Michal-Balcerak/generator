@@ -166,21 +166,26 @@ def tworz_dzialanie_4():
     ulamek_3 = sympy.sympify(f'{l_3}/{m3}')
     tex3 = konwersja_ulamek_liczba_mieszana(ulamek_3)
 
-
-    out = out + tex1 + ops[q] + "(" + tex2 + ops[w]
-    if l_3<0:
-        out += "("
-    out += tex3
-    if l_3<0:
-        out += ")"
-
-    out += ")"
-
     # obliczanie wyniku:
     dzialanie = str(l_1) + '/' + str(m1) + ops[q] + "(" + str(l_2) + '/' + str(m2) + ops[w] + str(l_3) + '/' + str(m3) + ")"
     wynik = sympy.sympify(dzialanie)
     wynik_tex = konwersja_ulamek_liczba_mieszana(wynik)
     rozwiazanie = wynik_tex
+
+    out += tex1
+    if ops[q]=="*":
+        out += "\\cdot"
+    elif ops[q]=="/":
+        out += ":"
+    out += "("
+    out += tex2
+    out += ops[w]
+    if l_3 < 0:
+        out += "("
+    out += l_3
+    if l_3 < 0:
+        out += ")"
+    out += ")"
 
     return (out, rozwiazanie)
 
