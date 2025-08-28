@@ -18,7 +18,7 @@ def generuj_pdf(tryb=1,ile_przykladow=26):
         funkcja = tworz_rownanie_3
     elif tryb==5:
         funkcja = tworz_rownanie_3b
-    else:
+    elif tryb == 6:
         funkcja = tworz_rownanie_0
 
     output+='\\begin{enumerate}\n'
@@ -75,7 +75,7 @@ def generuj_pdf(tryb=1,ile_przykladow=26):
 
     output_dir = "zadania"
     temp_dir = "temp_build"
-    file_name = f"równania"
+    file_name = f"zadania"
 
 
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
