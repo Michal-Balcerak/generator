@@ -1,15 +1,12 @@
-# fly.toml app configuration file generated for web-pdf-generator on 2025-07-30T12:34:52+02:00
+# fly.toml app configuration file generated for generator-zadan on 2025-09-22T13:10:25Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'web-pdf-generator'
+app = 'generator-zadan'
 primary_region = 'waw'
 
 [build]
-
-[env]
-  FLASK_APP = "main.py"
 
 [http_service]
   internal_port = 8080
@@ -23,3 +20,4 @@ primary_region = 'waw'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 1024
