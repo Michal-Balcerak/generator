@@ -51,7 +51,7 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
         # output += '$\\newline'
     output += '\\end{enumerate}\n'
 
-    output_dir = "zadania"
+    output_dir = "output"
     temp_dir = "temp_build"
     file_name = f"wzory_skr_mnoz{tryb}"
 
