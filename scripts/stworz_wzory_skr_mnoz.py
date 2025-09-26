@@ -60,11 +60,6 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
 
 if __name__ == "__main__":
     import sys
-    try:
-        ile = int(sys.argv[1]) if len(sys.argv) > 1 else 26
-        tryb = int(sys.argv[2]) if len(sys.argv) > 2 else 26
-
-    except ValueError:
-        ile, tryb = 26, 1
-
+    tryb = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    ile = int(sys.argv[2]) if len(sys.argv) > 2 else 26
     generuj_pdf(tryb=tryb, ile_przykladow=ile)
