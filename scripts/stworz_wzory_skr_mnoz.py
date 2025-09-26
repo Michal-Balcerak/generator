@@ -57,4 +57,3 @@ def generuj_pdf(tryb=1, ile_przykladow=26):
 
     pdf(latex_text=output, output_dir=output_dir, temp_dir=temp_dir, file_name=file_name)
 
-generuj_pdf(2, 7)
