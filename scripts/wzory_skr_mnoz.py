@@ -65,20 +65,11 @@ def tworz_wzor2():
     c = str(c)
     d = str(d)
 
-    j = random.randint(0,2) #j==0 inversed (a+b) <-> (b+a)
+    if c == '1':
+        c = ""
 
-    if j:
-        if c == '1':
-            c = ""
-
-        if d == '1':
-            d = "+"
-    else:
-        if c == '1':
-            c = "+"
-
-        if d == '1':
-            d = ""
+    if d == '1':
+        d = ""
 
     p = "(" + c + a + "-" + d + b +")"
     q = "(" + c + a + "+" + d + b + ")" if random.randint(0,2) else "(" + d + b + "+" + c + a + ")"
