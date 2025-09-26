@@ -46,7 +46,7 @@ def generate():
         zmienne = request.form.get('zmienne', '2')
         args = [ile, tryb, zmienne]
 
-    elif option == "wzory_skr_mnozenia":
+    elif option == "stworz_wzory_skr_mnoz":
         tryb = request.form.get('wzory_skr_mnoz-tryb', '1')
         ile = request.form.get('ile_przykladow_wzory_skr_mnoz', '26')
         args = [ile, tryb]
