@@ -57,8 +57,8 @@ def generate():
         python_executable = os.path.join(".venv", "bin", "python")
     result = subprocess.run([python_executable, script_path, *args], capture_output=True, text=True)
 
-    # print("STDOUT:", result.stdout)
-    # print("STDERR:", result.stderr)
+    print("STDOUT:", result.stdout)
+    print("STDERR:", result.stderr)
 
     pdf_path = f'output/zadania.pdf'
     if os.path.exists(pdf_path):
