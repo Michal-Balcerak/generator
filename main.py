@@ -46,6 +46,11 @@ def generate():
         zmienne = request.form.get('zmienne', '2')
         args = [ile, tryb, zmienne]
 
+    elif option == "wzory_skr_mnozenia":
+        tryb = request.form.get('wzory_skr_mnoz-tryb', '1')
+        ile = request.form.get('ile_przykladow_wzory_skr_mnoz', '26')
+        args = [ile, tryb]
+
     if os.name == "nt":
         python_executable = os.path.join(".venv", "Scripts", "python.exe")
     else:

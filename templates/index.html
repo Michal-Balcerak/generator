@@ -95,6 +95,7 @@
             <option value="stworz_dzialanie_pierwiastek">Działania pierwiastki</option>
             <option value="stworz_rownanie_nierownosc">Równanie / Nierówność</option>
             <option value="stworz_uklad_rownan">Układ równań</option>
+            <option value="stworz_wzory_skr_mnoz">Wzory skróconego mnożenia</option>
         </select>
 
         <!-- Sekcje opcji -->
@@ -173,6 +174,19 @@
             <input type="range" name="ile_przykladow_uklad" min="1" max="26" value="26" oninput="document.getElementById('ile_value5').innerText = this.value">
         </div>
 
+        <div id="wzory_skr_mnoz-options" class="option-fields">
+            <label for="wzory_skr_mnoz-tryb">Tryb:</label>
+            <select name="wzory_skr_mnoz-tryb" id="wzory_skr_mnoz-tryb">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Ile przykładów: <span id="ile_value6">26</span></label>
+            <input type="range" name="ile_przykladow_wzory_skr_mnoz" min="1" max="26" value="26" oninput="document.getElementById('ile_value5').innerText = this.value">
+        </div>
+
         <button type="submit">Generuj PDF</button>
     </form>
 
@@ -190,6 +204,8 @@
                 document.getElementById("rownania-options").style.display = "block";
             } else if (option === "stworz_uklad_rownan") {
                 document.getElementById("uklad-options").style.display = "block";
+            } else if (option === "stworz_wzory_skr_mnoz") {
+                document.getElementById("wzory_skr_mnoz-options").style.display = "block";
             }
         }
 
